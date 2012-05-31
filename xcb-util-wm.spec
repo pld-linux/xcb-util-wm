@@ -1,18 +1,19 @@
 Summary:	XCB util-wm module
 Summary(pl.UTF-8):	Moduł XCB util-wm
 Name:		xcb-util-wm
-Version:	0.3.8
+Version:	0.3.9
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
-# Source0-md5:	dda47289bc846a6a3e07824e9ec3aef8
+# Source0-md5:	c612aae7ffe2e70fe743efab9c5548e9
 URL:		http://xcb.freedesktop.org/XcbUtil/
 BuildRequires:	gperf
 BuildRequires:	libxcb-devel >= 1.4
 BuildRequires:	m4
 BuildRequires:	pkgconfig
 BuildRequires:	xcb-proto >= 1.6
+Requires:	libxcb >= 1.4
 Conflicts:	xcb-util < 0.3.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -92,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libxcb-icccm.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libxcb-icccm.so.4
 %attr(755,root,root) %{_libdir}/libxcb-ewmh.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libxcb-ewmh.so.1
+%attr(755,root,root) %ghost %{_libdir}/libxcb-ewmh.so.2
 
 %files devel
 %defattr(644,root,root,755)
