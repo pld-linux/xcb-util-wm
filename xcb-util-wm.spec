@@ -1,18 +1,19 @@
 Summary:	XCB util-wm module
 Summary(pl.UTF-8):	Moduł XCB util-wm
 Name:		xcb-util-wm
-Version:	0.4.0
+Version:	0.4.1
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
-# Source0-md5:	1b5182b894753de63c9fad1ce6124534
+# Source0-md5:	87b19a1cd7bfcb65a24e36c300e03129
 URL:		http://xcb.freedesktop.org/XcbUtil/
 BuildRequires:	gperf
 BuildRequires:	libxcb-devel >= 1.4
 BuildRequires:	m4
 BuildRequires:	pkgconfig
 BuildRequires:	xcb-proto >= 1.6
+BuildRequires:	xorg-util-util-macros >= 1.16.0
 Requires:	libxcb >= 1.4
 Conflicts:	xcb-util < 0.3.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
