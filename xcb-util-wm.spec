@@ -2,7 +2,7 @@ Summary:	XCB util-wm module
 Summary(pl.UTF-8):	Moduł XCB util-wm
 Name:		xcb-util-wm
 Version:	0.4.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries
 Source0:	http://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
