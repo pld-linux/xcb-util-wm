@@ -1,19 +1,21 @@
 Summary:	XCB util-wm module
 Summary(pl.UTF-8):	Moduł XCB util-wm
 Name:		xcb-util-wm
-Version:	0.4.1
-Release:	2
+Version:	0.4.2
+Release:	1
 License:	MIT
 Group:		Libraries
-Source0:	http://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
-# Source0-md5:	87b19a1cd7bfcb65a24e36c300e03129
-URL:		http://xcb.freedesktop.org/XcbUtil/
+Source0:	https://xcb.freedesktop.org/dist/%{name}-%{version}.tar.xz
+# Source0-md5:	581b3a092e3c0c1b4de6416d90b969c3
+URL:		https://xcb.freedesktop.org/XcbUtil/
 BuildRequires:	gperf
 BuildRequires:	libxcb-devel >= 1.4
 BuildRequires:	m4
 BuildRequires:	pkgconfig
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xcb-proto >= 1.6
 BuildRequires:	xorg-util-util-macros >= 1.16.0
+BuildRequires:	xz
 Requires:	libxcb >= 1.4
 Conflicts:	xcb-util < 0.3.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -82,6 +84,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libxcb-{ewmh,icccm}.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -90,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog NEWS README
+%doc ChangeLog NEWS README.md
 %attr(755,root,root) %{_libdir}/libxcb-icccm.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libxcb-icccm.so.4
 %attr(755,root,root) %{_libdir}/libxcb-ewmh.so.*.*.*
@@ -100,8 +105,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libxcb-ewmh.so
 %attr(755,root,root) %{_libdir}/libxcb-icccm.so
-%{_libdir}/libxcb-ewmh.la
-%{_libdir}/libxcb-icccm.la
 %{_includedir}/xcb/xcb_ewmh.h
 %{_includedir}/xcb/xcb_icccm.h
 %{_pkgconfigdir}/xcb-ewmh.pc
